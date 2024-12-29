@@ -116,7 +116,7 @@ local function QLMOT_fake_script() -- ScreenGui.LocalScript
 		plr.CFrame = plr.CFrame + vector / num_tp
 	end
 
-	local tpOn = false
+	local tpOn = true
 	local sell = false
 	
 	function mainTP() -- Finds the item
