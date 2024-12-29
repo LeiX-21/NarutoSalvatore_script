@@ -10,7 +10,7 @@ local TitleUnderline = Instance.new("TextLabel")
 local UICorner_2 = Instance.new("UICorner")
 local toggleSelling = Instance.new("TextButton")
 local UICorner_3 = Instance.new("UICorner")
-local tpToItems = Instance.new("TextButton")
+local tpToItems = Instance.new("TextButton")  -- Bottone per il teletrasporto agli oggetti
 local UICorner_4 = Instance.new("UICorner")
 local UICorner_5 = Instance.new("UICorner")
 local Title = Instance.new("TextLabel")
@@ -36,7 +36,7 @@ Bottomtext.BorderSizePixel = 0
 Bottomtext.Position = UDim2.new(0.0851010829, 0, 0.86340785, 0)
 Bottomtext.Size = UDim2.new(0, 200, 0, 21)
 Bottomtext.Font = Enum.Font.SourceSansSemibold
-Bottomtext.Text = "fojeeeee"
+Bottomtext.Text = "MAMMT FA FOJEEEE"
 Bottomtext.TextColor3 = Color3.fromRGB(101, 24, 107)
 Bottomtext.TextSize = 14.000
 
@@ -76,20 +76,6 @@ tpToItems.TextWrapped = true
 
 UICorner_3.CornerRadius = UDim.new(0.150000006, 0)
 UICorner_3.Parent = toggleSelling
-
-tpToItems.Name = "tpToItems"
-tpToItems.Parent = Frame
-tpToItems.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-tpToItems.BorderColor3 = Color3.fromRGB(0, 0, 0)
-tpToItems.BorderSizePixel = 0
-tpToItems.Position = UDim2.new(0.115576386, 0, 0.336887568, 0)
-tpToItems.Size = UDim2.new(0, 185, 0, 40)
-tpToItems.Font = Enum.Font.SourceSansSemibold
-tpToItems.Text = "TP to items: off"
-tpToItems.TextColor3 = Color3.fromRGB(101, 24, 107)
-tpToItems.TextScaled = true
-tpToItems.TextSize = 14.000
-tpToItems.TextWrapped = true
 
 UICorner_4.CornerRadius = UDim.new(0.150000006, 0)
 UICorner_4.Parent = tpToItems
@@ -268,15 +254,21 @@ local function QLMOT_fake_script() -- ScreenGui.LocalScript
 	end)
 	
 	local tpButton = script.Parent.Frame.tpToItems
-	tpButton.InputBegan:Connect(function()
-		tpOn = not tpOn
-		if tpOn then
-			tpButton.Text = "Tp to items: on"
-			coroutine.wrap(mainTP)()
-		else
-			tpButton.Text = "Tp to items: off"
-		end
-		print("TP to items is now " .. tostring(tpOn))
-	end)
+	tpButton.InputBegan:Connect(function(input, gameProcessedEvent)
+        -- Verifica se l'input è già stato processato da un altro sistema
+        if gameProcessedEvent then return end
+
+        -- Controlla se l'input è un click del mouse o un tocco
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            tpOn = not tpOn
+            if tpOn then
+                tpButton.Text = "Tp to items: on"
+                coroutine.wrap(mainTP)()
+            else
+                tpButton.Text = "Tp to items: off"
+            end
+            print("TP to items is now " .. tostring(tpOn))
+        end
+    end)
 end
 coroutine.wrap(QLMOT_fake_script)()
