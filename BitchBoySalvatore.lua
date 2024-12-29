@@ -36,7 +36,7 @@ Bottomtext.BorderSizePixel = 0
 Bottomtext.Position = UDim2.new(0.0851010829, 0, 0.86340785, 0)
 Bottomtext.Size = UDim2.new(0, 200, 0, 21)
 Bottomtext.Font = Enum.Font.SourceSansSemibold
-Bottomtext.Text = "MAMMT FA FOJEEEE2222"
+Bottomtext.Text = "MAMMT FA FOJEEEE123123123"
 Bottomtext.TextColor3 = Color3.fromRGB(101, 24, 107)
 Bottomtext.TextSize = 14.000
 
@@ -254,21 +254,9 @@ local function QLMOT_fake_script() -- ScreenGui.LocalScript
 	end)
 	
 	local tpButton = script.Parent.Frame.tpToItems
-	tpButton.InputBegan:Connect(function(input, gameProcessedEvent)
+	tpButton.InputBegan:Connect:function(input, gameProcessedEvent)
         -- Verifica se l'input è già stato processato da un altro sistema
         if gameProcessedEvent then return end
 
         -- Controlla se l'input è un click del mouse o un tocco
-        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-            tpOn = not tpOn
-            if tpOn then
-                tpButton.Text = "Tp to items: on"
-                coroutine.wrap(mainTP)()
-            else
-                tpButton.Text = "Tp to items: off"
-            end
-            print("TP to items is now " .. tostring(tpOn))
-        end
-    end)
-end
 coroutine.wrap(QLMOT_fake_script)()
