@@ -36,7 +36,7 @@ Bottomtext.BorderSizePixel = 0
 Bottomtext.Position = UDim2.new(0.0851010829, 0, 0.86340785, 0)
 Bottomtext.Size = UDim2.new(0, 200, 0, 21)
 Bottomtext.Font = Enum.Font.SourceSansSemibold
-Bottomtext.Text = "FOJEEEEEE"
+Bottomtext.Text = "fojeeeee"
 Bottomtext.TextColor3 = Color3.fromRGB(101, 24, 107)
 Bottomtext.TextSize = 14.000
 
@@ -237,7 +237,7 @@ local function QLMOT_fake_script() -- ScreenGui.LocalScript
     end
 
 -- Attiva la funzione di vendita automatica in background
-coroutine.wrap(autoSellItems)()  -- Avvia la funzione in un thread separato
+	coroutine.wrap(autoSellItems)()  -- Avvia la funzione in un thread separato
 
 	function sellItem(item)
 		local plrName = game.Players.LocalPlayer.Name
