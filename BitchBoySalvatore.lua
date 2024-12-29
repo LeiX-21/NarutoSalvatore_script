@@ -257,7 +257,7 @@ coroutine.wrap(autoSellItems)()  -- Avvia la funzione in un thread separato
 	end
 	
 	local sellingButton = script.Parent.Frame.toggleSelling
-	sellingButton.MouseButton1Click:Connect(function()
+	sellingButton.InputBegan:Connect(function()
 		sell = not sell
 		if sell then
 			sellingButton.Text = "Toggle selling: on"
@@ -268,7 +268,7 @@ coroutine.wrap(autoSellItems)()  -- Avvia la funzione in un thread separato
 	end)
 	
 	local tpButton = script.Parent.Frame.tpToItems
-	tpButton.MouseButton1Click:Connect(function()
+	tpButton.InputBegan:Connect(function()
 		tpOn = not tpOn
 		if tpOn then
 			tpButton.Text = "Tp to items: on"
