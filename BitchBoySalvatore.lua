@@ -36,7 +36,7 @@ Bottomtext.BorderSizePixel = 0
 Bottomtext.Position = UDim2.new(0.0851010829, 0, 0.86340785, 0)
 Bottomtext.Size = UDim2.new(0, 200, 0, 21)
 Bottomtext.Font = Enum.Font.SourceSansSemibold
-Bottomtext.Text = "MAMMT FA FOJEEEE"
+Bottomtext.Text = "MAMMT FA FOJEEEE2222"
 Bottomtext.TextColor3 = Color3.fromRGB(101, 24, 107)
 Bottomtext.TextSize = 14.000
 
